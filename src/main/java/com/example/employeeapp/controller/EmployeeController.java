@@ -49,6 +49,12 @@ public class EmployeeController {
     	e.setName("Durga");
     	e.setDepartment("DEV");
     	list.add(e);
+
+        e = new Employee();
+    	e.setId(6);
+    	e.setName("Nitharshna");
+    	e.setDepartment("DEV");
+    	list.add(e);
     	
     	System.out.println(list);
     	return list;
