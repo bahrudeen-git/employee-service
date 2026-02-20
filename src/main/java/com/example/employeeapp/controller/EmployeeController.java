@@ -41,7 +41,7 @@ public class EmployeeController {
     	e = new Employee();
     	e.setId(3);
     	e.setName("Saravanan J");
-    	e.setDepartment("IT");
+    	e.setDepartment("Dev");
     	list.add(e);
     	
     	System.out.println(list);
