@@ -39,9 +39,15 @@ public class EmployeeController {
     	list.add(e);
     	
     	e = new Employee();
-    	e.setId(3);
+    	e.setId(4);
     	e.setName("Saravanan J");
-    	e.setDepartment("Dev");
+    	e.setDepartment("DEV");
+    	list.add(e);
+    	
+    	e = new Employee();
+    	e.setId(5);
+    	e.setName("Durga");
+    	e.setDepartment("DEV");
     	list.add(e);
     	
     	System.out.println(list);
