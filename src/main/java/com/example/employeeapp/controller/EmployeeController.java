@@ -56,6 +56,13 @@ public class EmployeeController {
     	e.setDepartment("DEV");
     	list.add(e);
     	
+    	e = new Employee();
+     	e.setId(7);
+     	e.setName("Guna");
+     	e.setDepartment("DEV");
+     	list.add(e);
+     	
+     	
     	System.out.println(list);
     	return list;
        // return repository.findAll();
