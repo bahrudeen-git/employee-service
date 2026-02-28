@@ -9,8 +9,8 @@ public class EmployeeAppConfig implements WebMvcConfigurer {
 
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {
-		registry.addMapping("/**").allowedOrigins("http://localhost:4200","http://54.224.46.64",
-                "http://54.224.46.64:80")
+		registry.addMapping("/**").allowedOrigins("http://localhost:4200","http://100.31.215.187",
+                "http://100.31.215.187:80")
 				.allowedMethods("GET", "POST", "PUT", "DELETE").allowedHeaders("*").allowCredentials(true);
 	}
 }
