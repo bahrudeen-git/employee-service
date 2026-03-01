@@ -1,7 +1,9 @@
 package com.example.employeeapp.controller;
 
-import com.example.employeeapp.model.Employee;
+import com.example.employeeapp.entity.Employee;
 import com.example.employeeapp.repository.EmployeeRepository;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.*;
 
@@ -10,17 +12,18 @@ import java.util.*;
 @CrossOrigin(origins = "http://localhost:4200") 
 public class EmployeeController {
 
-    private final EmployeeRepository repository;
+	@Autowired
+	private EmployeeRepository employeeRepository;
 
-    public EmployeeController(EmployeeRepository repository) {
-        this.repository = repository;
-    }
+//    public EmployeeController(EmployeeRepository repository) {
+//        this.repository = repository;
+//    }
 
     @GetMapping
     public List<Employee> getAllEmployees() {
     	System.out.println("*********** get employees******");
     	List<Employee> list = new ArrayList<Employee>();
-    	Employee e = new Employee();
+    	/*Employee e = new Employee();
     	e.setId(1);
     	e.setName("Bahrudeen");
     	e.setDepartment("CS");
@@ -60,9 +63,9 @@ public class EmployeeController {
      	e.setId(7);
      	e.setName("Guna");
      	e.setDepartment("DEV");
-     	list.add(e);
+     	list.add(e);*/
      	
-     	
+     	list = employeeRepository.findAll();
     	System.out.println(list);
     	return list;
        // return repository.findAll();
@@ -70,23 +73,23 @@ public class EmployeeController {
 
     @GetMapping("/{id}")
     public Employee getEmployee(@PathVariable Long id) {
-        return repository.findById(id).orElse(null);
+        return employeeRepository.findById(id).orElse(null);
     }
 
     @PostMapping
     public Employee createEmployee(@RequestBody Employee employee) {
-        return repository.save(employee);
+        return employeeRepository.save(employee);
     }
 
     @PutMapping("/{id}")
     public Employee updateEmployee(@PathVariable Integer id, @RequestBody Employee employee) {
         employee.setId(id);
-        return repository.save(employee);
+        return employeeRepository.save(employee);
     }
 
     @DeleteMapping("/{id}")
     public String deleteEmployee(@PathVariable Long id) {
-        repository.deleteById(id);
+    	employeeRepository.deleteById(id);
         return "Employee deleted";
     }
 }
